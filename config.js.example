@@ -1,0 +1,35 @@
+const path = require('path');
+
+module.exports = {
+
+  rapla: {
+    baseURL: 'https://your.rapla.address/rapla',
+  },
+
+  calendars: [
+    {
+      name: '<name of calendar>',
+      raplaKey: '<key to rapla-calendar, can be found in url>',
+      icsOutput: path.join(__dirname, 'out', 'calendar_file.ics')
+    },
+    {
+      name: 'foo',
+      raplaKey: 'bar', 
+      icsOutput: path.join(__dirname, 'out', 'helloworld.ics')
+    }
+  ],
+
+  // How many days into the future get crawled
+  generateDays: 90,
+
+  // Keep old events? Currently buggy
+  archiveOld: true,
+
+  // This gets inserted into the description of every event created
+  disclaimerText: "WARNING: The software generating these events " +
+    'is provided "as is", without warranty of any kind. \n'+
+    "This software is unofficial and not affiliated with the Rapla-Projekt in any way. " +
+    "It may have bugs and be error prone, therefore these events shouldn't be " +
+    "used in production. IN DOUBT, LOOK AT THE OFFICIAL RAPLA-SOURCE."
+
+}
